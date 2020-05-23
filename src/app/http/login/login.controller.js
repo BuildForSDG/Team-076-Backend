@@ -4,15 +4,21 @@ import UserValidator from '../../validators/user.validator';
 
 class LoginController {
   constructor(userModel, authService, userValidator) {
-    this.userModel = userModel;
+    this.userModel = userModel; // the user model
     this.authService = authService;
     this.userValidator = userValidator;
-    this.loginUser = this.loginUser.bind(this);
+    this.loginUser = this.loginUser.bind(this); // to make 'this' in the method reference the class
   }
 
+  /**
+   * Handler for the POST /api/login route
+   * @param {*} req
+   * @param {*} res
+   */
   async loginUser(req, res) {
     const { body } = req;
 
+    // to validate the input object
     const validationResult = await this.userValidator.validateLoginUser(body);
 
     if (!validationResult.valid) {
@@ -29,6 +35,7 @@ class LoginController {
 
     let user;
     try {
+      // fetch the user
       user = await this.userModel.findOne({
         where: {
           username: body.username
@@ -42,6 +49,7 @@ class LoginController {
       return;
     }
 
+    // checks the password sent in is correct
     if (user && this.authService.verifyPassword(body.password, user.password)) {
       res.json({
         success: true,
@@ -55,6 +63,7 @@ class LoginController {
       return;
     }
 
+    // defaults to this if user does not exist or passwords don't match
     res.json({
       success: false,
       message: 'Invalid login details'

@@ -56,6 +56,11 @@ class RegisterController {
     });
   }
 
+  /**
+   * Handler for GET /api/register/checkUsername
+   * @param {*} req
+   * @param {*} res
+   */
   async checkUsername(req, res) {
     const { body } = req;
     const exists = await this.userValidator.userExists(body.username);

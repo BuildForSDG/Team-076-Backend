@@ -7,10 +7,18 @@ import bcrypt from 'bcrypt';
  * for different types of encryption strategies. No dependency injection system in this project
  */
 class AuthService {
+  /**
+   * Creates a signed token
+   * @param {*} payload
+   */
   static createToken(payload) {
     return jwt.sign(payload, process.env.JWT_SECRET);
   }
 
+  /**
+   * Makes a hash of the password
+   * @param {String} normalPassword
+   */
   static hashPassword(normalPassword) {
     return bcrypt.hashSync(normalPassword, 10);
   }
