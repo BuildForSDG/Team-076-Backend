@@ -120,9 +120,9 @@ Create a `.env` file in the root directory, copy all keys from the `.env.example
 Setup database connection properties in `src/config/database.js`.
 
 For the first time:
-  - run `npx sequelize-cli db:create`  to create the database for the current environment.
-  - run `npx sequelize-cli db:migrate` to setup the tables.
-  - run `npx sequelize-cli db:drop` to remove the database and delete all tables and data (make sure you know what you're doing. should only be run in development).
+- run `npx sequelize-cli db:create`  to create the database for the current environment.
+- run `npx sequelize-cli db:migrate` to setup the tables.
+- run `npx sequelize-cli db:drop` to remove the database and delete all tables and data (make sure you know what you're doing. should only be run in development).
 
 `src/server.js` is the entry to the project and source code should go into the `src` folder.
 
@@ -132,12 +132,12 @@ This starter uses [Parcel](https://parceljs.org/getting_started.html) as the bun
 
 ## Hints
 
-  - Run `npm install` or `yarn install` to get started. We'll assume you are using Yarn.
-  - Install additional dependencies: `yarn add <dependency-name> [-D]`
-  - Run tests: `yarn test`
-  - Run tests with test coverage info: `yarn test:cover`
-  - Check the codebase for proper syntax and formatting compliance: `yarn lint`
-  - Run your app in local dev mode: `yarn start`. 
+- Run `npm install` or `yarn install` to get started. We'll assume you are using Yarn.
+- Install additional dependencies: `yarn add <dependency-name> [-D]`
+- Run tests: `yarn test`
+- Run tests with test coverage info: `yarn test:cover`
+- Check the codebase for proper syntax and formatting compliance: `yarn lint`
+- Run your app in local dev mode: `yarn start`. 
 
 ## Authors
 
